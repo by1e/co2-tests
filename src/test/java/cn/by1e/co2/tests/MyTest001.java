@@ -28,17 +28,7 @@ public class MyTest001 {
     }
 
     public static void main(String[] args) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Test.add();
-            }
-        }).start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Test.compare();
-            }
-        }).start();
+        new Thread(Test::add).start();
+        new Thread(Test::compare).start();
     }
 }
