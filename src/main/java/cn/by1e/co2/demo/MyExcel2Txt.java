@@ -2,6 +2,7 @@ package cn.by1e.co2.demo;
 
 import cn.by1e.ox.core.constant.Constants;
 import cn.by1e.ox.core.util.ConsoleUtils;
+import cn.by1e.ox.core.util.InvokeUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -53,19 +54,21 @@ public class MyExcel2Txt {
         if (CollectionUtils.isEmpty(strs)) {
             return;
         }
-        String data = StringUtils.join(strs, ",\n");
-        FileUtils.writeStringToFile(new File(txt), data);
+        FileUtils.writeStringToFile(new File(txt), StringUtils.join(strs, ",\n"));
         ConsoleUtils.jsons(txt, strs.size());
     }
 
+    @SuppressWarnings(Constants.UNCHECKED)
     private static List<String> read(String csv) throws Throwable {
-        @SuppressWarnings(Constants.UNCHECKED)
-        List<String> list = FileUtils.readLines(new File(csv));
-        return CollectionUtils.isEmpty(list) ?
-                Collections.emptyList() :
-                list.stream().map(e -> StringUtils.isBlank(e) ? StringUtils.EMPTY : e.split(",")[0].replaceAll("[^0-9]", StringUtils.EMPTY).trim())
-                        .filter(StringUtils::isNotBlank)
-                        .filter(e -> e.length() == 6)
-                        .collect(Collectors.toList());
+        return InvokeUtils.function(
+                (List<String>) FileUtils.readLines(new File(csv)),
+                list -> CollectionUtils.isEmpty(list) ?
+                        Collections.emptyList() :
+                        list.stream().map(e -> StringUtils.isBlank(e) ? StringUtils.EMPTY : e.split(",")[0].replaceAll("[^0-9]", StringUtils.EMPTY).trim())
+                                .filter(StringUtils::isNotBlank)
+                                .filter(e -> e.length() == 6)
+                                .collect(Collectors.toList())
+        );
     }
+
 }
