@@ -26,7 +26,7 @@ public class MyExcel2Txt {
     private static final String txt_path = "/Users/chainz/Temporary/";
 
     private static final String[] files = new String[]{
-            "2020-8-5(1).csv",
+            "2020-8-7.csv",
     };
 
     public static void main(String[] args) throws Throwable {
