@@ -1,4 +1,4 @@
-package cn.by1e.co2.demo;
+package cn.by1e.co2.demo.demo001;
 
 import cn.by1e.ox.core.constant.Constants;
 import cn.by1e.ox.core.util.ConsoleUtils;
@@ -26,7 +26,7 @@ public class MyExcel2Txt {
     private static final String txt_path = "/Users/chainz/Temporary/";
 
     private static final String[] files = new String[]{
-            "2020-8-7.csv",
+            "2020-8-11(1).csv",
     };
 
     public static void main(String[] args) throws Throwable {
