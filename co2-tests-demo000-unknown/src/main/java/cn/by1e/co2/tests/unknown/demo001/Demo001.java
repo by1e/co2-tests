@@ -1,4 +1,4 @@
-package cn.by1e.co2.demo.demo002;
+package cn.by1e.co2.tests.unknown.demo001;
 
 import cn.by1e.ox.core.util.ConsoleUtils;
 
@@ -6,7 +6,7 @@ import cn.by1e.ox.core.util.ConsoleUtils;
  * @author bangquan.qian
  * @date 2020-08-29 13:18
  */
-public class Demo002 {
+public class Demo001 {
 
     static class Car {
         void drive() {

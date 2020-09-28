@@ -1,4 +1,4 @@
-package cn.by1e.co2.demo.demo001;
+package cn.byt1.co2.tests.demo001;
 
 import cn.by1e.ox.core.constant.Constants;
 import cn.by1e.ox.core.util.ConsoleUtils;
